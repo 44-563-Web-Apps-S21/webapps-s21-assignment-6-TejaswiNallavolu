@@ -11,7 +11,7 @@
     <h2>Tejaswi Reddy computes</h2>
 
     <form>
-        <label for="first_num">Enter a number</label>
+        <label for="first_number">Enter a number</label>
         <input type="number" id="first_number" name="first_number" min=10 max=50 step=2 value=10> <br>
 
         <label for="second_num">Enter a number</label>
@@ -21,29 +21,70 @@
 
     </form>
 
+    <p id="result1">The result will be displayed here</p>
 
-    <p id="result">This text will be replaced </p>
+    <form>
+        <input type="radio" id="plus" name="arithmetic" onclick="processRadio()" value="plus">
+        <label for="plus">+</label></br>
+      
+        <input type="radio" id="minus" name="arithmetic" onclick="processRadio()" value="minus">
+        <label for="minus">-</label></br>
+    
+        <input type="radio" id="times" name="arithmetic" onclick="processRadio()" value="times">
+        <label for="times">*</label></br>
+    
+        <input type="radio" id="divide" name="arithmetic" onclick="processRadio()" value="divide">
+        <label for="divide">/</label></br>
+      </form>
+    
+      <p id="result">The result will be displayed here</p>
+
+    
+
+
+
 
     <script>
         function permutations() {
-            fnum = document.getElementById("first_number").value
-            snum = document.getElementById("second_number").value
+            fnumber = document.getElementById("first_number").value
+            snumber = document.getElementById("second_number").value
             var product = 1;
 
-            let i = fnum;
+            let i = fnumber;
 
             do {
                 product *= i;
                 i--
-            } while (i >= (fnum - snum + 1))
+            } while (i >= (fnumber - snumber + 1))
 
 
-            out = document.getElementById("result")
-            out.innerHTML = fnum + " permute " + snum + " is " + product
+            out = document.getElementById("result1")
+            out.innerHTML = fnumber + " permute " + snumber + " is " + product
         }
 
-
-    </script>
+        function processRadio() {
+            var fnumber = document.getElementById("first_number").value;
+            var snumber = document.getElementById("second_number").value;
+            var c = 0;
+            out = document.getElementById("result")
+            if (document.getElementById("plus").checked) {
+                c = parseFloat(fnumber) + parseFloat(snumber);
+                result.innerHTML = c;
+            }
+            if (document.getElementById("minus").checked) {
+                c = fnumber - snumber;
+                result.innerHTML = c;
+            }
+            if (document.getElementById("times").checked) {
+                c = fnumber * snumber;
+                result.innerHTML = c;
+            }
+            if (document.getElementById("divide").checked) {
+                c = fnumber / snumber;
+                result.innerHTML = c;
+            }
+        }
+</script>
 
 </body>
 
