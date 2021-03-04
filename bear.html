@@ -5,12 +5,19 @@
     <title>
         Welcome to my bear page
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrap cdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        h2{color: rebeccapurple;
+        background-color:thistle;
+        display: inline-block;
+
+        }
+        </style>
 </head>
+
 
 <body>
 
@@ -25,7 +32,7 @@
         <input type="checkbox" id="shirt" name="shirt" value="shirt">
         <label for="shirt">shirt</label><br>
 
-        <input type=button onclick="startbear()" value="Start a bear">
+        <input type=button onclick="startbear()" class="btn btn-success" value="Start a bear">
     </form>
     <p id="result">The result will be replaced </p>
     <form>
@@ -37,7 +44,7 @@
         <input type="text" id="value" name="value">
         </br>
 
-        <input type="button" onclick="updatebear()" value="Update the bear">
+        <input type="button" onclick="updatebear()" class="btn btn-outline-primary"value="Update the bear">
 
     </form>
 

@@ -5,17 +5,23 @@
     <title>
         This is my Hidden page
     </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrap cdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    
+    h1 {
+        color: maroon
+    }
+</style>
 
 <body>
 
     <h1>Hidden things by Tejaswi Reddy Nallavolu</h1>
-    <h2>Getting input</h2>
+    
 
     <form>
         <label for="form1_age">What is your age </label>
@@ -24,7 +30,7 @@
         <label for="form1_nick">What is your nickname </label>
         <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-        <input type="button" onclick="resolveForm()" value="Get values from form">
+        <input type="button" onclick="resolveForm()" class="btn btn-info" value="Get values from form">
     </form>
 
 
@@ -36,65 +42,66 @@
         <br>
         <label for="form1_Guess">Enter a guess</label>
         <input type="text" id="form1_Guess" name="form1_Guess" autofocus> <br>
-        <input type="button" onclick="processGuess()" value="Check the guess">
+        <input type="button" onclick="processGuess()" class="btn btn-success" value="Check the guess">
     </form>
     <p id="GP">Guess the password </p>
     <div class="container">
         <img src="images/LAVENDER.jpg" onClick="rotateImage()" id="image" alt="LAVENDER" width="200" height="200">
-        <script>
-            var correct = 0;
-            var wrong = 0;
-            function processGuess() {
-                var P = document.getElementById("form1_password").value
-                var G = document.getElementById("form1_Guess").value
-                out = document.getElementById("GP")
-                if (P == G) {
-                    alert("Congratulations");
-                    correct = correct + 1;
-                    out.innerHTML = "correct " + correct + " wrong " + wrong
+    </div>
+    <script>
+        var correct = 0;
+        var wrong = 0;
+        function processGuess() {
+            var P = document.getElementById("form1_password").value
+            var G = document.getElementById("form1_Guess").value
+            out = document.getElementById("GP")
+            if (P == G) {
+                alert("Congratulations");
+                correct = correct + 1;
+                out.innerHTML = "correct " + correct + " wrong " + wrong
 
-                } else {
-                    alert("Sorry");
-                    wrong = wrong + 1;
-                    out.innerHTML = "correct " + correct + " wrong " + wrong
+            } else {
+                alert("Sorry");
+                wrong = wrong + 1;
+                out.innerHTML = "correct " + correct + " wrong " + wrong
 
-                }
+            }
+        }
+
+        var Image = 0;
+        function rotateImage() {
+            switch (Image) {
+                case 0:
+                    image.setAttribute('src', 'images/Abies.jpg');
+                    Image = Image + 1;
+                    break;
+                case 1:
+                    image.setAttribute('src', 'images/Aloe.jpg');
+                    Image = Image + 1;
+                    break;
+                case 2:
+                    image.setAttribute('src', 'images/LAVENDER.jpg');
+                    Image = 0;
+                    break;
             }
 
-            var Image=0;
-            function rotateImage(){
-                switch (Image) {
-                    case 0:
-                        image.setAttribute('src', 'images/Abies.jpg');
-                        Image = Image + 1;
-                        break;
-                    case 1:
-                        image.setAttribute('src', 'images/Aloe.jpg');
-                        Image = Image + 1;
-                        break;
-                    case 2:
-                        image.setAttribute('src', 'images/LAVENDER.jpg');
-                        Image = Image + 1;
-                        break;
-                }
-            
+        }
+
+
+        function resolveForm() {
+            console.log("Getting form val-ues");
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            confirmed = confirm("Are these the values? " + age + " and " + nick)
+
+            out = document.getElementById("result")
+            if (confirmed) {
+                out.innerHTML = "Values were confirmed"
+            } else {
+                out.innerHTML = "Values were not confirmed"
             }
-
-
-            function resolveForm() {
-                console.log("Getting form val-ues");
-                age = document.getElementById("form1_age").value
-                nick = document.getElementById("form1_nick").value
-                confirmed = confirm("Are these the values? " + age + " and " + nick)
-
-                out = document.getElementById("result")
-                if (confirmed) {
-                    out.innerHTML = "Values were confirmed"
-                } else {
-                    out.innerHTML = "Values were not confirmed"
-                }
-            }
-        </script>
+        }
+    </script>
 
 </body>
 
